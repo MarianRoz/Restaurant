@@ -1,0 +1,7 @@
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\bin\Debug\Restaurant.exe.config
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\bin\Debug\Restaurant.exe
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\bin\Debug\Restaurant.pdb
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.AssemblyReference.cache
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.CoreCompileInputs.cache
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\obj\Debug\Restaurant.exe
+C:\Users\rozum\OneDrive\Документи\Restaurant\Restaurant\obj\Debug\Restaurant.pdb
