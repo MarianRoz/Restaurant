@@ -1,21 +1,40 @@
-﻿using Restaurant.Products;
+﻿using Restaurant.ExtrasProducts;
+using Restaurant.Products;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Restaurant
 {
     public class Kitchen
     {
         private IFood AddExtras(IFood mainFood, IEnumerable<string> extras)
-        { return mainFood; }
+        {
+            if (extras.FirstOrDefault() == "Ketchup")
+            {
+                return new Ketchup(mainFood);
+            }
+            if (extras.FirstOrDefault() == "Mustard")
+            {
+                return new Mustard(mainFood);
+            }
+            return mainFood;
+        }
         internal IFood Cook(Order order)
         {
-            IFood res = CreateMainFood(order.Food);
-            return null;
+            IFood mainFood = CreateMainFood(order.Food);
+            IFood mainFoodWithExtras = AddExtras(mainFood, order.Extras);
+            return mainFoodWithExtras;
         }
         public IFood CreateMainFood(string food)
         {
-            HotDog hotDog = new HotDog();
-            hotDog.CalculateHappiness(10);
+            if (food == "HotDog")
+            {
+                return new HotDog();
+            }
+            if (food == "Chips")
+            {
+                return new Chips();
+            }
             return null;
         }
     }
