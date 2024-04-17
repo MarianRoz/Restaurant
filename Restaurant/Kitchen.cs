@@ -1,5 +1,6 @@
 ﻿using Restaurant.ExtrasProducts;
 using Restaurant.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,6 +35,10 @@ namespace Restaurant
             if (food == "Chips")
             {
                 return new Chips();
+            }
+            else
+            {
+                Console.WriteLine($"{food} is not on menu");
             }
             return null;
         }
