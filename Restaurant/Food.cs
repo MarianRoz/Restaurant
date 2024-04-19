@@ -8,6 +8,8 @@
     {
         public abstract double CalculateHappiness(double happiness);
         protected Food()
-        { }
+        {
+
+        }
     }
 }

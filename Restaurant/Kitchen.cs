@@ -2,7 +2,6 @@
 using Restaurant.Products;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Restaurant
 {
@@ -10,13 +9,16 @@ namespace Restaurant
     {
         private IFood AddExtras(IFood mainFood, IEnumerable<string> extras)
         {
-            if (extras.FirstOrDefault() == "Ketchup")
+            foreach (string item in extras)
             {
-                return new Ketchup(mainFood);
-            }
-            if (extras.FirstOrDefault() == "Mustard")
-            {
-                return new Mustard(mainFood);
+                if (item == "Ketchup")
+                {
+                    new Ketchup(mainFood);
+                }
+                if (item == "Mustard")
+                {
+                    new Mustard(mainFood);
+                }
             }
             return mainFood;
         }
