@@ -11,16 +11,26 @@ namespace Restaurant
         {
             foreach (string item in extras)
             {
-                if (item == "Ketchup")
+                try
                 {
-                    new Ketchup(mainFood);
+                    if (item != "Ketchup" && item != "Mustard")
+                    {
+                        throw new Exception($"{item} is not on the menu");
+                    }
+                    if (item == "Ketchup")
+                    {
+                        new Ketchup(mainFood);
+                    }
+                    if (item == "Mustard")
+                    {
+                        new Mustard(mainFood);
+                    }
                 }
-                if (item == "Mustard")
+                catch (Exception e)
                 {
-                    new Mustard(mainFood);
+                    Console.WriteLine($"Error: {e.Message}");
                 }
             }
-            //  (^_^)
             return mainFood;
         }
         internal IFood Cook(Order order)
@@ -31,17 +41,24 @@ namespace Restaurant
         }
         public IFood CreateMainFood(string food)
         {
-            if (food == "HotDog")
+            try
             {
-                return new HotDog();
+                if (food != "HotDog" && food != "Chips")
+                {
+                    throw new Exception($"{food} is not on the menu");
+                }
+                if (food == "HotDog")
+                {
+                    return new HotDog();
+                }
+                if (food == "Chips")
+                {
+                    return new Chips();
+                }
             }
-            if (food == "Chips")
+            catch (Exception e)
             {
-                return new Chips();
-            }
-            else
-            {
-                Console.WriteLine($"{food} is not on menu");
+                Console.WriteLine($"Error: {e.Message}");
             }
             return null;
         }
