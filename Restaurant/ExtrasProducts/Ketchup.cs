@@ -1,8 +1,10 @@
-﻿namespace Restaurant.ExtrasProducts
+﻿using System;
+
+namespace Restaurant.ExtrasProducts
 {
     public class Ketchup : Extra
     {
-        public Ketchup(IFood food) : base(food) { }
+        public Ketchup(IFood food) : base(food) { Console.WriteLine("Added ketchup"); }
 
         public override double CalculateHappiness(double happiness)
         {
