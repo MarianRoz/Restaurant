@@ -2,7 +2,6 @@
 using Restaurant.Products;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Restaurant
 {
@@ -10,13 +9,27 @@ namespace Restaurant
     {
         private IFood AddExtras(IFood mainFood, IEnumerable<string> extras)
         {
-            if (extras.FirstOrDefault() == "Ketchup")
+            foreach (string item in extras)
             {
-                return new Ketchup(mainFood);
-            }
-            if (extras.FirstOrDefault() == "Mustard")
-            {
-                return new Mustard(mainFood);
+                try
+                {
+                    if (item != "Ketchup" && item != "Mustard")
+                    {
+                        throw new Exception($"{item} is not on the menu");
+                    }
+                    if (item == "Ketchup")
+                    {
+                        new Ketchup(mainFood);
+                    }
+                    if (item == "Mustard")
+                    {
+                        new Mustard(mainFood);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Error: {e.Message}");
+                }
             }
             return mainFood;
         }
@@ -28,17 +41,24 @@ namespace Restaurant
         }
         public IFood CreateMainFood(string food)
         {
-            if (food == "HotDog")
+            try
             {
-                return new HotDog();
+                if (food != "HotDog" && food != "Chips")
+                {
+                    throw new Exception($"{food} is not on the menu");
+                }
+                if (food == "HotDog")
+                {
+                    return new HotDog();
+                }
+                if (food == "Chips")
+                {
+                    return new Chips();
+                }
             }
-            if (food == "Chips")
+            catch (Exception e)
             {
-                return new Chips();
-            }
-            else
-            {
-                Console.WriteLine($"{food} is not on menu");
+                Console.WriteLine($"Error: {e.Message}");
             }
             return null;
         }
