@@ -26,6 +26,7 @@ namespace Restaurant
                         new Mustard(mainFood);
                     }
                 }
+                //                           (^_^)
                 catch (Exception e)
                 {
                     Console.WriteLine($"Error: {e.Message}");
